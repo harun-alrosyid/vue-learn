@@ -1,6 +1,4 @@
 <script setup>
-import CompositionComponent from './components/CompositionComponent.vue';
-import OptionComponent from './components/OptionComponent.vue';
 import TryMe from './components/TryMe.vue';
 
 const name = "harun";
