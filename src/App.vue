@@ -1,7 +1,12 @@
 <script setup>
+import MainButton from './components/MainButton.vue';
 import TryMe from './components/TryMe.vue';
 
 const name = "harun";
+
+const paragraph = "<p style='color:red'>paragraph</p>";
+
+const id="iniId";
 
 </script>
 
@@ -10,9 +15,25 @@ const name = "harun";
    <h1>vue-learn</h1>
   </header>
   <p>{{name}}</p>
-  <TryMe msg="harun"/>
+  <try-me msg="harun"/>
   <OptionComponent/>
-  <CompositionComponent/>
+  <composition-component/>
+
+  <!-- raw html -->
+
+  <div>{{paragraph}}</div>
+
+  <div v-html="paragraph"></div>
+
+  <!-- binding -->
+
+  <div v-bind:id="id">ini id</div>
+
+  <MainButton/>
+
+
+
+
 </template>
 
 <style scoped>
