@@ -5,6 +5,7 @@ import TryMe from './components/TryMe.vue'
 import EmitingListenEvent from './components/EmitingListenEvent.vue'
 import EmitingListenEventArgument from './components/EmitingListenEventArgument.vue'
 import ReactiveComputed from './components/ReactiveComputed.vue'
+import WatcherComponent from './components/WatcherComponent.vue'
 
 const name = 'harun'
 
@@ -126,6 +127,9 @@ watch(count, (newVal, oldVal) => {
 
    <!-- computed and reactive -->
   <ReactiveComputed />
+
+  <WatcherComponent />
+
 
 </template>
 
