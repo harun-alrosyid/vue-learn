@@ -1,27 +1,38 @@
 <script setup>
-import MainButton from './components/MainButton.vue';
-import TryMe from './components/TryMe.vue';
+import { ref } from 'vue'
+import MainButton from './components/MainButton.vue'
+import TryMe from './components/TryMe.vue'
 
-const name = "harun";
+const name = 'harun'
 
-const paragraph = "<p style='color:red'>paragraph</p>";
+const paragraph = "<p style='color:red'>paragraph</p>"
 
-const id="iniId";
+const id = 'iniId'
 
+const active = ref(false)
+
+const onclickToggle = () => {
+  active.value = !active.value
+}
 </script>
 
 <template>
   <header>
-   <h1>vue-learn</h1>
+    <h1>vue-learn</h1>
   </header>
-  <p>{{name}}</p>
-  <try-me msg="harun"/>
-  <OptionComponent/>
-  <composition-component/>
+  <!-- v-if  -->
+  <button @click="onclickToggle">Toggle</button>
+  <p v-if="active">active</p>
+  <p v-else>inactive</p>
+  <!--  -->
+  <p>{{ name }}</p>
+  <try-me msg="harun" />
+  <OptionComponent />
+  <composition-component />
 
   <!-- raw html -->
 
-  <div>{{paragraph}}</div>
+  <div>{{ paragraph }}</div>
 
   <div v-html="paragraph"></div>
 
@@ -29,13 +40,7 @@ const id="iniId";
 
   <div v-bind:id="id">ini id</div>
 
-  <MainButton/>
-
-
-
-
+  <MainButton />
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
