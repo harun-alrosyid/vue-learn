@@ -6,6 +6,7 @@ import EmitingListenEvent from './components/EmitingListenEvent.vue'
 import EmitingListenEventArgument from './components/EmitingListenEventArgument.vue'
 import ReactiveComputed from './components/ReactiveComputed.vue'
 import WatcherComponent from './components/WatcherComponent.vue'
+import LifeCycleHooks from './components/LifeCycleHooks.vue'
 
 const name = 'harun'
 
@@ -129,6 +130,8 @@ watch(count, (newVal, oldVal) => {
   <ReactiveComputed />
 
   <WatcherComponent />
+
+  <LifeCycleHooks />
 
 
 </template>
