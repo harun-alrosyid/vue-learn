@@ -14,6 +14,39 @@ const active = ref(false)
 const onclickToggle = () => {
   active.value = !active.value
 }
+
+// v-for
+const listFruits = [
+  "apple",
+  "banana",
+  "orange",
+]
+
+const listNested = [
+  [
+    "apple",
+    "banana",
+    "orange",
+  ],
+  [
+    "apple",
+    "banana",
+    "orange",
+  ],
+]
+
+const listNestedObject = [
+  {type:"tropial",fruits:[
+    "apple",
+    "banana",
+    "orange",
+  ]},
+  {type:"nontropial",fruits:[
+    "apple",
+    "banana",
+    "orange",
+  ]},
+]
 </script>
 
 <template>
@@ -41,6 +74,27 @@ const onclickToggle = () => {
   <div v-bind:id="id">ini id</div>
 
   <MainButton />
+  <!-- v-for -->
+  <ul>
+    <li v-for="fruit in listFruits" v-bind:key="fruit">{{ fruit }}</li>
+  </ul>
+  <!-- nested -->
+  <ul>
+    <li v-for="nested in listNested" v-bind:key="nested">
+      <ul>
+        <li v-for="fruit in nested" :key="fruit">{{ fruit }}</li>
+      </ul>
+    </li>
+  </ul>
+  <!-- nested object -->
+  <ul>
+    <li v-for="nested in listNestedObject" v-bind:key="nested">
+      <p>{{ nested.type }}</p>
+      <ul>
+        <li v-for="fruit in nested.fruits" :key="fruit">{{ fruit }}</li>
+      </ul>
+    </li>
+  </ul>
 </template>
 
 <style scoped></style>
