@@ -1,7 +1,10 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import MainButton from './components/MainButton.vue'
 import TryMe from './components/TryMe.vue'
+import EmitingListenEvent from './components/EmitingListenEvent.vue'
+import EmitingListenEventArgument from './components/EmitingListenEventArgument.vue'
+import ReactiveComputed from './components/ReactiveComputed.vue'
 
 const name = 'harun'
 
@@ -47,9 +50,26 @@ const listNestedObject = [
     "orange",
   ]},
 ]
+
+const checklog = () => {
+  console.log("checklog")
+}
+
+  // Emit listen
+  const count = ref(0)
+  function increment(n) {
+    console.log(n);
+    count.value = count.value + n 
+  }
+
+watch(count, (newVal, oldVal) => {
+  console.log(`count berubah dari ${oldVal} ke ${newVal}`)
+})
+  
 </script>
 
 <template>
+  {{ count }}
   <header>
     <h1>vue-learn</h1>
   </header>
@@ -72,6 +92,7 @@ const listNestedObject = [
   <!-- binding -->
 
   <div v-bind:id="id">ini id</div>
+  
 
   <MainButton />
   <!-- v-for -->
@@ -96,6 +117,16 @@ const listNestedObject = [
       </ul>
     </li>
   </ul>
+  <!-- Emit listen -->
+   <EmitingListenEvent  @some-event="checklog()"/>
+   <EmitingListenEvent  @some-event.once ="checklog()"/>
+
+   <EmitingListenEventArgument  @incrementBy="increment"/>
+
+
+   <!-- computed and reactive -->
+  <ReactiveComputed />
+
 </template>
 
 <style scoped></style>
