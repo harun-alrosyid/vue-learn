@@ -88,10 +88,11 @@ const listNestedObject = [
   </ul>
   <!-- nested object -->
   <ul>
-    <li v-for="nested in listNestedObject" v-bind:key="nested">
-      <p>{{ nested.type }}</p>
-      <ul>
-        <li v-for="fruit in nested.fruits" :key="fruit">{{ fruit }}</li>
+    <li v-for="(nested,index) in listNestedObject" :key="index">
+      <p>{{ index }} : {{ nested.type }}</p>
+      <ul v-for="(vakue,key,index) in nested" :key="index">
+        <p>{{ key }} : {{ vakue }}</p>
+        <li v-for="(fruit,key,index) in nested.fruits" :key="index">{{ key }} : {{ fruit }}</li>
       </ul>
     </li>
   </ul>
